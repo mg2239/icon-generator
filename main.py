@@ -5,7 +5,9 @@ from PIL import ImageDraw, Image, ImageColor
 palettes = {
     "ocean": ["#DDE5FF", "#9BB2FF", "#7A99FF", "#597FFF"],
     "sunset": ["#FFE0BA", "#FFB978", "#FF898B", "#DB8CD2"],
+    "caterpillar": ["#E9FFCC", "#A8FFAB", "#7FF0C3", "#7FD5C3"],
 }
+
 icon = [
     ["0", "0", "0", "0", "0", "0"],
     ["0", "0", "0", "0", "0", "0"],
@@ -15,13 +17,23 @@ icon = [
     ["0", "0", "0", "0", "0", "0"],
 ]
 
+
+def get_palettes():
+    acc = ""
+    for p in palettes:
+        acc += p + " "
+    return acc.strip()
+
+
 def md5_hash(s):
     """Hashes string using MD5 hash function."""
     return hashlib.md5(s.encode("utf-8")).hexdigest()
 
+
 def hex_to_dec(n):
     """Converts hexadecimal number to decimal."""
     return int(n, 16)
+
 
 def fill_icon(hash_str, num, palette):
     """
@@ -46,6 +58,7 @@ def fill_icon(hash_str, num, palette):
         else:
             col += 1
 
+
 def generate_img():
     img_size = 600
     img = Image.new("RGB", (img_size, img_size))
@@ -56,8 +69,10 @@ def generate_img():
         for hex_color in row_color:
             rgb_color = ImageColor.getrgb(hex_color)
             draw = ImageDraw.Draw(img)
-            draw.rectangle([x, y, x + step_size, y + step_size], rgb_color, rgb_color, 0)
-            if (x == img_size - step_size):
+            draw.rectangle(
+                [x, y, x + step_size, y + step_size], rgb_color, rgb_color, 0
+            )
+            if x == img_size - step_size:
                 x = 0
                 y -= step_size
             else:
@@ -67,7 +82,7 @@ def generate_img():
 
 def main():
     username = input("String: ")
-    palette = input("Which palette? (ocean, sunset): ").lower()
+    palette = input("Which palette? (" + get_palettes() + "): ").lower()
     assert palette in palettes
     num_colors = int(input("Number of colors (1-4): "))
     assert num_colors > 0 and num_colors < 5
