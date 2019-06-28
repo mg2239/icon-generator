@@ -14,7 +14,7 @@ icon = [
     ["0", "0", "0", "0", "0", "0"],
     ["0", "0", "0", "0", "0", "0"],
 ]
-
+img_size = 600
 
 def md5_hash(s):
     """Hashes string using MD5 hash function."""
@@ -48,19 +48,20 @@ def fill_icon(hash_str, num, palette):
             col += 1
 
 def generate_img():
-    img = Image.new("RGB", (600, 600))
+    img = Image.new("RGB", (img_size, img_size))
+    step_size = img_size / 6
     x = 0
-    y = 500
+    y = img_size - step_size
     for row_color in icon:
         for hex_color in row_color:
             rgb_color = ImageColor.getrgb(hex_color)
             draw = ImageDraw.Draw(img)
-            draw.rectangle([(x, y), (x + 100, y + 100)], rgb_color, rgb_color, 0)
-            if (x == 500):
+            draw.rectangle([x, y, x + step_size, y + step_size], rgb_color, rgb_color, 0)
+            if (x == img_size - step_size):
                 x = 0
-                y -= 100
+                y -= step_size
             else:
-                x += 100
+                x += step_size
     img.save("icon.png", format="PNG")
 
 
