@@ -71,10 +71,7 @@ def main():
     num_colors = int(input("Number of colors (1-4): "))
     assert num_colors > 0 and num_colors < 5
     user_hash = md5_hash(username)
-    print(user_hash)
     fill_icon(user_hash, num_colors, palettes[palette])
-    for row in icon:
-        print(row)
     generate_img()
 
 
