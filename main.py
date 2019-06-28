@@ -1,4 +1,5 @@
 import hashlib
+import sys
 from PIL import ImageDraw, Image, ImageColor
 
 palettes = {
@@ -6,12 +7,12 @@ palettes = {
     "sunset": ["#FFE0BA", "#FFB978", "#FF898B", "#DB8CD2"],
 }
 icon = [
-    ["#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555"],
-    ["#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555"],
-    ["#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555"],
-    ["#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555"],
-    ["#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555"],
-    ["#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555", "#ff5555"],
+    ["0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0"],
 ]
 
 
@@ -47,7 +48,20 @@ def fill_icon(hash_str, num, palette):
             col += 1
 
 def generate_img():
-    pass
+    img = Image.new("RGB", (600, 600))
+    x = 0
+    y = 500
+    for row_color in icon:
+        for hex_color in row_color:
+            rgb_color = ImageColor.getrgb(hex_color)
+            draw = ImageDraw.Draw(img)
+            draw.rectangle([(x, y), (x + 100, y + 100)], rgb_color, rgb_color, 0)
+            if (x == 500):
+                x = 0
+                y -= 100
+            else:
+                x += 100
+    img.save("icon.png", format="PNG")
 
 
 def main():
