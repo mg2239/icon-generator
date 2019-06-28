@@ -14,7 +14,6 @@ icon = [
     ["0", "0", "0", "0", "0", "0"],
     ["0", "0", "0", "0", "0", "0"],
 ]
-img_size = 600
 
 def md5_hash(s):
     """Hashes string using MD5 hash function."""
@@ -48,6 +47,7 @@ def fill_icon(hash_str, num, palette):
             col += 1
 
 def generate_img():
+    img_size = 600
     img = Image.new("RGB", (img_size, img_size))
     step_size = img_size / 6
     x = 0
