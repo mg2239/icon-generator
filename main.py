@@ -26,12 +26,24 @@ def get_palettes():
 
 
 def md5_hash(s):
-    """Hashes string using MD5 hash function."""
+    """ 
+        Hashes string using MD5 hash function. 
+
+        Parameters:
+        s: An unhashed string.
+
+    """
     return hashlib.md5(s.encode("utf-8")).hexdigest()
 
 
 def hex_to_dec(n):
-    """Converts hexadecimal number to decimal."""
+    """ 
+        Converts hexadecimal number to decimal. 
+
+        Parameters:
+        n: A number in decimal format.
+
+    """
     return int(n, 16)
 
 
@@ -60,6 +72,7 @@ def fill_icon(hash_str, num, palette):
 
 
 def generate_img():
+    """ Generates an image based on the colors in icon, and saves the resulting image. """
     img_size = 600
     img = Image.new("RGB", (img_size, img_size))
     step_size = img_size / 6
