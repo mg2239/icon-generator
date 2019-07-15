@@ -1,5 +1,4 @@
 import hashlib
-import sys
 from PIL import ImageDraw, Image, ImageColor
 
 palettes = {
