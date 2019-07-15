@@ -19,6 +19,7 @@ icon = [
 
 
 def get_palettes():
+    """ Returns all possible palettes in string format. """
     acc = ""
     for p in palettes:
         acc += p + " "
@@ -27,7 +28,7 @@ def get_palettes():
 
 def md5_hash(s):
     """ 
-        Hashes string using MD5 hash function. 
+        Returns a hashed string s using MD5 hash function. 
 
         Parameters:
         s: An unhashed string.
@@ -38,7 +39,7 @@ def md5_hash(s):
 
 def hex_to_dec(n):
     """ 
-        Converts hexadecimal number to decimal. 
+        Returns a number n converted from decimal to hexadecimal. 
 
         Parameters:
         n: A number in decimal format.
@@ -100,6 +101,7 @@ def main():
     num_colors = int(input("Number of colors (1-4): "))
     assert num_colors > 0 and num_colors < 5
     user_hash = md5_hash(username)
+    print(user_hash)
     fill_icon(user_hash, num_colors, palettes[palette])
     generate_img()
 

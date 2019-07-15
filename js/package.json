@@ -1,0 +1,24 @@
+{
+    "name": "icon-generator",
+    "version": "1.0.0",
+    "description": "Generates Github-style gravatars",
+    "main": "main.js",
+    "dependencies": {
+        "blueimp-md5": "^2.11.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mg2239/icon-generator.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mg2239/icon-generator/issues"
+    },
+    "homepage": "https://github.com/mg2239/icon-generator#readme"
+}
