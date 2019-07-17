@@ -21,7 +21,3 @@ function get_palettes() {
     }
     return acc.trim();
 }
-
-function md5_hash(s) {
-    return md5(s);
-}
