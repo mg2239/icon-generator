@@ -1,4 +1,4 @@
-# icon-generator
+# Icon Generator
 
 Generates Github-style gravatars using MD5 hashing of strings in Python and Javascript.
 
