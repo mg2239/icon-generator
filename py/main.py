@@ -1,5 +1,5 @@
 import hashlib
-from PIL import ImageDraw, Image, ImageColor
+from PIL import ImageDraw, Image, ImageColor, ImageOps
 
 palettes = {
     "ocean": ["#DDE5FF", "#9BB2FF", "#7A99FF", "#597FFF"],
@@ -71,7 +71,7 @@ def fill_icon(hash_str, num, palette):
             col += 1
 
 
-def generate_img():
+def generate_img(palette):
     """ Generates an image based on the colors in icon, and saves the resulting image. """
     img_size = 600
     img = Image.new("RGB", (img_size, img_size))
@@ -90,6 +90,7 @@ def generate_img():
                 y -= step_size
             else:
                 x += step_size
+    img = ImageOps.expand(img, 80, palette[0])
     img.save("icon.png", format="PNG")
 
 
@@ -101,7 +102,7 @@ def main():
     assert num_colors > 0 and num_colors < 5
     user_hash = md5_hash(username)
     fill_icon(user_hash, num_colors, palettes[palette])
-    generate_img()
+    generate_img(palettes[palette])
 
 
 if __name__ == "__main__":
