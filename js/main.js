@@ -21,7 +21,6 @@ function get_palettes() {
   }
   return acc.trim();
 }
-<<<<<<< HEAD
 
 function md5_hash(s) {
   return md5(s);
@@ -44,5 +43,3 @@ function main() {
 }
 
 main();
-=======
->>>>>>> 30ab654a14b23e6748a9a7d6e65f30e323fcb1eb
