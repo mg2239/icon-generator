@@ -29,3 +29,17 @@ function md5_hash(s) {
 function hex_to_dec(n) {
   return parseInt(n, 16);
 }
+
+function fill_icon(hash_str, num, palette) {
+  return NaN;
+}
+
+function generate_img() {
+  return NaN;
+}
+
+function main() {
+  console.log("hello!");
+}
+
+main();
