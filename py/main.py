@@ -4,7 +4,7 @@ from PIL import ImageDraw, Image, ImageColor, ImageOps
 palettes = {
     "ocean": ["#DDE5FF", "#9BB2FF", "#7A99FF", "#597FFF"],
     "sunset": ["#FFE0BA", "#FFB978", "#FF898B", "#DB8CD2"],
-    "caterpillar": ["#E9FFCC", "#A8FFAB", "#7FF0C3", "#7FD5C3"],
+    "dragon": ["#E3FFEE", "#84CFA3", "#57B098", "#308A8F"],
 }
 
 icon = [
@@ -71,8 +71,15 @@ def fill_icon(hash_str, num, palette):
             col += 1
 
 
-def generate_img(palette):
-    """ Generates an image based on the colors in icon, and saves the resulting image. """
+def generate_img(username, bg_color):
+    """
+        Generates an image based on the colors in icon, and saves the resulting image. 
+    
+        Parameters:
+        username: The username used to create the icon.
+        bg_color: The background color of the icon.
+
+    """
     img_size = 600
     img = Image.new("RGB", (img_size, img_size))
     step_size = img_size / 6
@@ -90,8 +97,8 @@ def generate_img(palette):
                 y -= step_size
             else:
                 x += step_size
-    img = ImageOps.expand(img, 80, palette[0])
-    img.save("icon.png", format="PNG")
+    img = ImageOps.expand(img, 80, bg_color)
+    img.save("icon_" + username + ".png", format="PNG")
 
 
 def main():
@@ -102,7 +109,7 @@ def main():
     assert num_colors > 0 and num_colors < 5
     user_hash = md5_hash(username)
     fill_icon(user_hash, num_colors, palettes[palette])
-    generate_img(palettes[palette])
+    generate_img(username, palettes[palette][0])
 
 
 if __name__ == "__main__":
