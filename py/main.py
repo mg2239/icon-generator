@@ -5,15 +5,15 @@ palettes = {
     "ocean": ["#DDE5FF", "#9BB2FF", "#7A99FF", "#597FFF"],
     "sunset": ["#FFE0BA", "#FFB978", "#FF898B", "#DB8CD2"],
     "dragon": ["#E3FFEE", "#84CFA3", "#57B098", "#308A8F"],
+    "github": [""]
 }
 
 icon = [
-    ["0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0"]
 ]
 
 
@@ -59,11 +59,10 @@ def fill_icon(hash_str, num, palette):
     """
     row = 0
     col = 0
-    for c in range(0, 18):
-        assert row < 6 and col < 3
+    for c in range(0, 15):
         color_index = hex_to_dec(hash_str[c]) % num
         color = palette[color_index]
-        icon[row][col] = icon[row][5 - col] = color
+        icon[row][col] = icon[row][4 - col] = color
         if col == 2:
             row += 1
             col = 0
@@ -80,9 +79,9 @@ def generate_img(username, bg_color):
         bg_color: The background color of the icon.
 
     """
-    img_size = 600
+    img_size = 500
     img = Image.new("RGB", (img_size, img_size))
-    step_size = img_size / 6
+    step_size = img_size / 5
     x = 0
     y = img_size - step_size
     for row_color in icon:
@@ -98,7 +97,7 @@ def generate_img(username, bg_color):
             else:
                 x += step_size
     img = ImageOps.expand(img, 80, bg_color)
-    img.save("icon_" + username + ".png", format="PNG")
+    img.save("icon_" + username.replace(" ", "-") + ".png", format="PNG")
 
 
 def main():

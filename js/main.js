@@ -1,8 +1,14 @@
 const md5 = require("blueimp-md5");
+const assert = require("assert");
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 const palettes = {
   ocean: ["#DDE5FF", "#9BB2FF", "#7A99FF", "#597FFF"],
   sunset: ["#FFE0BA", "#FFB978", "#FF898B", "#DB8CD2"],
-  caterpillar: ["#E9FFCC", "#A8FFAB", "#7FF0C3", "#7FD5C3"]
+  dragon: ["#E3FFEE", "#84CFA3", "#57B098", "#308A8F"]
 };
 
 let icon = [
@@ -16,14 +22,10 @@ let icon = [
 
 function get_palettes() {
   let acc = "";
-  for (var p in palettes) {
+  for (let p in palettes) {
     acc += p + " ";
   }
   return acc.trim();
-}
-
-function md5_hash(s) {
-  return md5(s);
 }
 
 function hex_to_dec(n) {
@@ -31,15 +33,35 @@ function hex_to_dec(n) {
 }
 
 function fill_icon(hash_str, num, palette) {
-  return NaN;
+  let row = 0;
+  let col = 0;
+  for (let c = 0; c < 18; c++) {
+    let color_index = hex_to_dec(hash_str[c]) % num;
+    let color = palette[color_index];
+    icon[row][col] = icon[row][5 - col] = color;
+    if (col === 2) {
+      row += 1;
+      col = 0;
+    } else {
+      col += 1;
+    }
+  }
 }
 
-function generate_img() {
+function generate_img(username, bg_color) {
   return NaN;
 }
 
 function main() {
-  console.log("hello!");
+  console.log("test");
+  let user = "";
+  rl.question("yss", answer => {
+    user = answer;
+    rl.close();
+  });
+  console.log(user);
+  fill_icon(md5("matt"), 3, palettes["dragon"]);
+  console.log(icon);
 }
 
 main();
