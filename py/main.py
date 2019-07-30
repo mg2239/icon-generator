@@ -108,15 +108,15 @@ def generate_img(username, bg_color, c_num, palette):
     img.save(
         "icon_" + username + "_" + palette + "_" +  str(c_num) + ".png",
         format="PNG"
-        )
+    )
 
 
 def main():
     username = input("String: ")
     palette = input("Which palette? (" + get_palettes() + "): ").lower()
     assert palette in palettes
-    num_colors = int(input("Number of colors (1-4): "))
-    assert num_colors > 0 and num_colors < 5
+    num_colors = int(input("Number of colors (2-4): "))
+    assert num_colors > 1 and num_colors < 5
     user_hash = md5_hash(username)
     fill_icon(user_hash, num_colors, palettes[palette])
     generate_img(username, palettes[palette][0], num_colors, palette)
