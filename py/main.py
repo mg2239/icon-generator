@@ -80,6 +80,12 @@ def generate_img(username, bg_color, c_num, palette):
         c_num: The number of colors.
         palette: The palette used to color the icon.
 
+        Preconditions:
+        username is a str and contains no whitespace
+        bg_color is a str
+        c_num is an int
+        palette is a str
+
     """
     img_size = 500
     img = Image.new("RGB", (img_size, img_size))
@@ -100,7 +106,7 @@ def generate_img(username, bg_color, c_num, palette):
                 x += step_size
     img = ImageOps.expand(img, 80, bg_color)
     img.save(
-        "icon_" + username.replace(" ", "-") + "_" + palette + "_" +  str(c_num) + ".png",
+        "icon_" + username + "_" + palette + "_" +  str(c_num) + ".png",
         format="PNG"
         )
 
