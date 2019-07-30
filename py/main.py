@@ -5,7 +5,7 @@ palettes = {
     "ocean": ["#DDE5FF", "#9BB2FF", "#7A99FF", "#597FFF"],
     "sunset": ["#FFE0BA", "#FFB978", "#FF898B", "#DB8CD2"],
     "dragon": ["#E3FFEE", "#84CFA3", "#57B098", "#308A8F"],
-    "github": ["#F0F0F0", "#4E9BE1", "#767DE0", "#6D52CE"]
+    "sakura": ["#eee6fb", "#dfb0d3", "#d983a6", "#d94773"]
 }
 
 icon = [
