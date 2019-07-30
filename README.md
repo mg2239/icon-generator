@@ -13,6 +13,7 @@ Python 3 and Pillow 6.1.0 (requirements.txt provided)
 3. Run using `python3 main.py`
 
 ## Demo
-![](https://imgur.com/VBc3qKE.jpg)
-![](https://imgur.com/06TRhUO.jpg)
-![](https://imgur.com/3Rn1rdo.jpg)
+![](https://imgur.com/VBc3qKE.png)
+![](https://imgur.com/06TRhUO.png)
+![](https://imgur.com/3Rn1rdo.png)
+![](https://imgur.com/QZbW7Qx.png)
