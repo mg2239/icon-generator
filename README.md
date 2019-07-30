@@ -1,8 +1,6 @@
 # Icon Generator
 
-Generates Github-style user avatars using MD5-hashed strings in Python and Javascript (currently in development).
-
-Both of these implementations are server-side. A client-side implementation can be (soon) found on [my GitHub site](https://mg2239.github.io).
+Generates Github-style user avatars using MD5-hashed strings in Python and Javascript (currently in development). An interactive web implementation can be (soon) found on [my GitHub site](https://mg2239.github.io).
 
 ## Requirements
 Python 3 and Pillow 6.1.0 (requirements.txt provided)
