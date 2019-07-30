@@ -5,7 +5,7 @@ palettes = {
     "ocean": ["#DDE5FF", "#9BB2FF", "#7A99FF", "#597FFF"],
     "sunset": ["#FFE0BA", "#FFB978", "#FF898B", "#DB8CD2"],
     "dragon": ["#E3FFEE", "#84CFA3", "#57B098", "#308A8F"],
-    "github": [""]
+    "github": ["#F0F0F0", "#4E9BE1", "#767DE0", "#6D52CE"]
 }
 
 icon = [
@@ -70,13 +70,15 @@ def fill_icon(hash_str, num, palette):
             col += 1
 
 
-def generate_img(username, bg_color):
+def generate_img(username, bg_color, c_num, palette):
     """
         Generates an image based on the colors in icon, and saves the resulting image. 
     
         Parameters:
         username: The username used to create the icon.
         bg_color: The background color of the icon.
+        c_num: The number of colors.
+        palette: The palette used to color the icon.
 
     """
     img_size = 500
@@ -97,7 +99,10 @@ def generate_img(username, bg_color):
             else:
                 x += step_size
     img = ImageOps.expand(img, 80, bg_color)
-    img.save("icon_" + username.replace(" ", "-") + ".png", format="PNG")
+    img.save(
+        "icon_" + username.replace(" ", "-") + "_" + palette + "_" +  str(c_num) + ".png",
+        format="PNG"
+        )
 
 
 def main():
@@ -108,7 +113,7 @@ def main():
     assert num_colors > 0 and num_colors < 5
     user_hash = md5_hash(username)
     fill_icon(user_hash, num_colors, palettes[palette])
-    generate_img(username, palettes[palette][0])
+    generate_img(username, palettes[palette][0], num_colors, palette)
 
 
 if __name__ == "__main__":
