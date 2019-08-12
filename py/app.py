@@ -128,8 +128,11 @@ def get_imgur_url(b64_img):
         Uploads base64 image b64_img to Imgur and returns the link to the upload.
     """
     url = "https://api.imgur.com/3/upload"
+    with open("config.json", "r") as config:
+        config_json = json.load(config)
+        client_id = config_json['id']
     header = {
-        'Authorization': 'Client-ID bead2de6b44dc2c'
+        'Authorization': 'Client-ID ' + client_id
     }
     files = {}
     body = {

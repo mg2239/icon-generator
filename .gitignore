@@ -3,3 +3,4 @@ venv
 .sonarlint
 .vscode
 py/venv
+py/config.json
