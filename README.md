@@ -5,12 +5,39 @@ Generates Github-style user avatars using MD5-hashed strings in Python and Javas
 An interactive web implementation can be (soon) found on [my GitHub site](https://mg2239.github.io/projects/icon_gen.html).
 
 ## Requirements
-Python 3 and Pillow 6.1.0 (requirements.txt provided)
+Found in requirements.txt
 
 ## Installation
+To run locally:
 1. Download the zip file
-2. Install the required packages
-3. Run using `python3 main.py`
+2. Install Pillow
+3. Run using `python3 main.py` in the py directory
+
+To run the Flask app:
+1. Download the zip file
+2. Install the packages in requirements.txt (`pip3 install -r requirements.txt`)
+3. Run using `python3 app.py` in the py directory
+
+## API
+### Generate an icon
+Request: `GET /api/generate/`
+
+Body:
+`
+{
+  "username": <string>,
+  "palette": <string>,
+  "num_colors": <string>
+}
+`
+
+Response:
+`
+{
+  "success": True,
+  "data": <imgur url>
+}
+`
 
 ## Demo
 ![](https://imgur.com/VBc3qKE.png)
