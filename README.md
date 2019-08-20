@@ -20,16 +20,7 @@ To run the Flask app:
 
 ## API
 ### Generate an icon
-Request: `GET /api/generate/`
-
-Body:
-`
-{
-  "username": <string>,
-  "palette": <string>,
-  "num_colors": <string>
-}
-`
+Request: `GET /api/generate/?username=<string>&palette=<string>&num_colors=<int>`
 
 Response:
 `
