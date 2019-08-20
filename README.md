@@ -1,8 +1,8 @@
 # Icon Generator
 
-Generates Github-style user avatars using MD5-hashed strings in Python.
+Web app that generates Github-style user avatars using MD5 hashes of strings in Python.
 
-An interactive web implementation can be (soon) found on [my GitHub site](https://mg2239.github.io/projects/icon_gen.html).
+The app is hosted on Heroku, and can be found [here](http://icon-gen-app.herokuapp.com).
 
 ## Requirements
 Found in requirements.txt
