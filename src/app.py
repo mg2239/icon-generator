@@ -34,8 +34,8 @@ def get_palettes():
 @app.route("/api/generate/")
 def get_icon():
     """
-        Gets icon data from request and returns JSON containing icon"s Imgur link
-        or an error.
+        Gets icon data from request and returns JSON containing icon encoded as a base64
+        string or an error.
     """
     username = request.args.get('username')
     palette = request.args.get('palette')
@@ -44,8 +44,8 @@ def get_icon():
         user_hash = md5_hash(username)
         fill_icon(user_hash, num_colors, palettes[palette])
         filename = generate_img(username, num_colors, palette)
-        imgur_url = get_imgur_url(img_to_b64(filename))
-        return json.dumps({"success": True, "data": imgur_url}), 200
+        b64 = img_to_b64(filename)
+        return json.dumps({"success": True, "data": b64}), 200
     return json.dumps({"success": False, "error": "One or more parameters are invalid."}), 500
 
 def md5_hash(s):
@@ -140,21 +140,6 @@ def img_to_b64(filename):
         img_str = str(base64.b64encode(img_file.read()))
     img = img_str[2:len(img_str)-1]
     return img
-
-def get_imgur_url(b64_img):
-    """
-        Uploads base64 image b64_img to Imgur and returns the link to the upload.
-    """
-    url = "https://api.imgur.com/3/upload"
-    header = {
-        "Authorization": "Client-ID " + "e63dea1dd7901ee"
-    }
-    files = {}
-    body = {
-        "image": b64_img
-    }
-    res = requests.request("POST", url, headers=header, data=body, files=files, allow_redirects=False)
-    return json.loads(res.text)["data"]["link"]
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
