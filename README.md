@@ -1,6 +1,6 @@
 # Icon Generator
 
-Generates Github-style user avatars using MD5-hashed strings in Python and Javascript (currently in development). 
+Generates Github-style user avatars using MD5-hashed strings in Python.
 
 An interactive web implementation can be (soon) found on [my GitHub site](https://mg2239.github.io/projects/icon_gen.html).
 
@@ -16,7 +16,7 @@ To run locally:
 To run the Flask app:
 1. Download the zip file
 2. Install the packages in requirements.txt (`pip3 install -r requirements.txt`)
-3. Run using `python3 app.py` in the py directory
+3. Run using `python3 app.py` in the src directory
 
 ## API
 ### Generate an icon

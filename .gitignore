@@ -1,6 +1,5 @@
 *.png
-venv
 .sonarlint
 .vscode
-py/venv
-py/config.json
+src/venv
+src/__pycache__
