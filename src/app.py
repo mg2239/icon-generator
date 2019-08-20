@@ -1,8 +1,10 @@
 import hashlib, requests, json, base64
 from PIL import ImageDraw, Image, ImageColor, ImageOps
 from flask import Flask, request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 palettes = {
     "ocean": ["#DDE5FF", "#9BB2FF", "#7A99FF", "#597FFF"],
