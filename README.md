@@ -26,7 +26,7 @@ Response:
 `
 {
   "success": True,
-  "data": <imgur url>
+  "data": <base64 string>
 }
 `
 
