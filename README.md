@@ -9,12 +9,12 @@ Found in requirements.txt
 To run locally:
 1. Download the zip file
 2. Install Pillow
-3. Run using `python3 main.py` in the py directory
+3. Run using `python3 main.py` in src
 
 To run the Flask app:
 1. Download the zip file
 2. Install the packages in requirements.txt (`pip3 install -r requirements.txt`)
-3. Run using `python3 app.py` in the src directory
+3. Run using `python3 app.py` in src
 
 ## API
 ### Generate an icon
