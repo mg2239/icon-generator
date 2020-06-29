@@ -2,8 +2,6 @@
 
 Web app that generates Github-style user avatars using MD5 hashes of strings.
 
-The API is hosted on Heroku, and can be found [here](http://icon-gen-app.herokuapp.com).
-
 ## Requirements
 Found in requirements.txt
 
